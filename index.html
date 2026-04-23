@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zikr Countdown</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main class="app">
+    <section id="menu-screen" class="screen screen-active" aria-label="Glavni meni">
+      <div class="menu-header">
+        <h1
+          style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+          Tasbih تَسْبِيح</h1>
+      </div>
+      <div id="menu-buttons" class="menu-buttons">
+        <button class="menu-btn" data-zikr="Subhanallah">
+          <span class="menu-btn-label">Subhanallah</span>
+          <span class="menu-btn-count" data-count-for="Subhanallah">0+</span>
+        </button>
+        <button class="menu-btn" data-zikr="Elhamdulillah">
+          <span class="menu-btn-label">Elhamdulillah</span>
+          <span class="menu-btn-count" data-count-for="Elhamdulillah">0+</span>
+        </button>
+        <button class="menu-btn" data-zikr="Allahu Ekber">
+          <span class="menu-btn-label">Allahu Ekber</span>
+          <span class="menu-btn-count" data-count-for="Allahu Ekber">0+</span>
+        </button>
+      </div>
+      <p id="total-count" class="total-count">Ukupan zbir zikrova: 0</p>
+      <button id="reset-all-btn" class="menu-reset-btn" type="button">Resetuj</button>
+      <div class="feedback-controls" aria-label="Izbor nacina povratne informacije">
+        <button id="vibrate-mode-btn" class="feedback-btn" type="button" aria-label="Vibrate mode">📳</button>
+        <button id="silent-mode-btn" class="feedback-btn" type="button" aria-label="Silent mode">🔕</button>
+      </div>
+      <button id="add-field-btn" class="add-field-btn" type="button" aria-label="Dodaj novo polje">Dodaj novi
+        zikr</button>
+    </section>
+
+    <section id="counter-screen" class="screen" aria-label="Ekran brojača">
+      <button id="back-btn" class="icon-btn" aria-label="Nazad">Vrati se nazad</button>
+      <div id="counter-tap-area" class="counter-content" role="button" tabindex="0"
+        aria-label="Dodirni za povećanje brojača">
+        <h2 id="zikr-title">Subhanallah</h2>
+        <p id="counter-value">0</p>
+      </div>
+      <button id="reset-btn" class="icon-btn reset-btn" aria-label="Resetuj brojač">Resetuj</button>
+    </section>
+  </main>
+
+  <div id="confirm-modal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="confirm-message">
+      <p id="confirm-message" class="modal-message">Da li ste sigurni da želite da obrišete ovo polje?</p>
+      <div class="modal-actions">
+        <button id="confirm-delete-btn" class="modal-btn" type="button">Obriši</button>
+        <button id="cancel-delete-btn" class="modal-btn modal-btn-secondary" type="button">Nazad</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="add-modal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="add-modal-title">
+      <p id="add-modal-title" class="modal-message">Dodaj novo polje</p>
+      <input id="add-field-input" class="modal-input" type="text" placeholder="Unesite naziv zikra" maxlength="120">
+      <p id="add-field-error" class="modal-error"></p>
+      <div class="modal-actions">
+        <button id="confirm-add-btn" class="modal-btn" type="button">Dodaj</button>
+        <button id="cancel-add-btn" class="modal-btn modal-btn-secondary" type="button">Nazad</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="reset-modal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="reset-message">
+      <p id="reset-message" class="modal-message">Da li želite da resetujete?</p>
+      <div class="modal-actions">
+        <button id="confirm-reset-all-btn" class="modal-btn" type="button">Resetuj</button>
+        <button id="cancel-reset-all-btn" class="modal-btn modal-btn-secondary" type="button">Nazad</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
